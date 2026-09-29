@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ei Pyae Phoo Khin | IT Student Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================
+           BASIC SETTINGS
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            color: #17233c;
+            background: #f7f9fc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #e7ebf2;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0b2c67;
+        }
+
+        .logo span {
+            color: #4f8fdc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4d5870;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #174a9c;
+        }
+
+        /* =========================
+           GENERAL SECTION
+        ========================== */
+        section {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #0b2c67;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #69758b;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+        .hero {
+            min-height: calc(100vh - 72px);
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-text .small-title {
+            color: #4f8fdc;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.08;
+            color: #0b2c67;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #4f8fdc;
+        }
+
+        .hero-text p {
+            max-width: 620px;
+            color: #5d687c;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            color: white;
+            background: #0b2c67;
+        }
+
+        .btn-primary:hover {
+            background: #174a9c;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #b8c4d8;
+            color: #0b2c67;
+            background: white;
+        }
+
+        .btn-outline:hover {
+            border-color: #4f8fdc;
+            transform: translateY(-2px);
+        }
+
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-box {
+            width: 330px;
+            height: 390px;
+            border-radius: 22px;
+            background: #e8f0fa;
+            border: 8px solid white;
+            box-shadow: 0 20px 50px rgba(20, 50, 100, 0.14);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            color: #61708a;
+            font-size: 14px;
+        }
+
+        /* =========================
+           ABOUT SECTION
+        ========================== */
+        .about {
+            background: white;
+            border-radius: 24px;
+            padding: 55px;
+            box-shadow: 0 15px 45px rgba(20, 50, 100, 0.06);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 380px;
+            background: #edf3fa;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-placeholder {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 25px;
+            color: #68758b;
+        }
+
+        .about-text h3 {
+            color: #0b2c67;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: #667188;
+            margin-bottom: 18px;
+        }
+
+        .info-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .info-item {
+            background: #f5f8fc;
+            padding: 14px;
+            border-radius: 10px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #0b2c67;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .info-item span {
+            color: #69758b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+        .skills {
+            margin-top: 35px;
+        }
+
+        .skills h4 {
+            color: #0b2c67;
+            margin-bottom: 14px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tags span {
+            padding: 8px 13px;
+            border-radius: 20px;
+            background: #eaf2fc;
+            color: #174a9c;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           PROJECT SECTION
+        ========================== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e8edf4;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(20, 50, 100, 0.04);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(20, 50, 100, 0.10);
+        }
+
+        .project-image {
+            height: 210px;
+            background: #e9f0f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-placeholder {
+            color: #66758c;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: #0b2c67;
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            color: #68758b;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .project-details {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .project-details li {
+            font-size: 13px;
+            color: #59667b;
+            margin-bottom: 7px;
+        }
+
+        .project-details strong {
+            color: #253c63;
+        }
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            background: #edf4fc;
+            color: #245a9f;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================== */
+        .contact-box {
+            background: #0b2c67;
+            border-radius: 24px;
+            padding: 55px;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .contact-text h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .contact-text p {
+            color: #d8e2f1;
+            max-width: 500px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 13px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.09);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 15px 18px;
+            border-radius: 10px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: white;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .contact-item a,
+        .contact-item span {
+            color: #dce8f7;
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        footer {
+            text-align: center;
+            padding: 28px;
+            background: #071d44;
+            color: #b9c7dc;
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+        @media (max-width: 850px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .hero,
+            .about-content,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                padding: 35px 25px;
+            }
+
+            .contact-box {
+                padding: 35px 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                height: auto;
+                min-height: 72px;
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .photo-box {
+                width: 280px;
+                height: 330px;
+            }
+
+            .info-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">EP<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+    <section id="home" class="hero">
+
+        <div class="hero-text">
+            <div class="small-title">IT STUDENT • ASPIRING SOFTWARE DEVELOPER</div>
+
+            <h1>Hello, I'm <span>Ei Pyae Phoo Khin.</span></h1>
+
+            <p>
+                I am an IT student at Info Myanmar College with an interest
+                in software development, programming, and technology.
+                This portfolio showcases my academic projects, skills,
+                and learning journey.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+
+
+        <!-- Replace this area with your own photo -->
+        <div class="hero-photo">
+            <div class="photo-box">
+
+                <!--
+                TO ADD YOUR PHOTO:
+                1. Put your image in the same folder as this HTML file.
+                2. Rename it to "profile.jpg".
+                3. Remove the placeholder below.
+                4. Uncomment the img line.
+                -->
+
+                <img src="eppk.jpg" alt="Ei Pyae Phoo Khin">
+                
+
+                <div class="photo-placeholder">
+                    <div>
+                        <strong>YOUR PHOTO</strong><br><br>
+                        Replace this box with your profile photo.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT ME SECTION
+    ========================== -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>A short introduction about my education, interests, and goals.</p>
+        </div>
+
+        <div class="about">
+
+            <div class="about-content">
+
+                <!-- Replace with another personal photo if you want -->
+                <div class="about-image">
+                    
+                    <img src="female.jpg" alt="About Me">
+                    
+
+                    <div class="about-placeholder">
+                        
+                    </div>
+                </div>
+
+
+                <div class="about-text">
+
+                    <h3>My Learning Journey</h3>
+
+                    <p>
+                        I am currently studying IT at
+                        <strong>Info Myanmar College</strong>.
+                        I am interested in learning how technology can be
+                        used to solve real-world problems.
+                    </p>
+
+                    <p>
+                        My main career goal is to become a
+                        <strong>software developer</strong>.
+                        I am building my knowledge through programming,
+                        database, web development, networking, and group
+                        projects.
+                    </p>
+
+                    <div class="info-list">
+
+                        <div class="info-item">
+                            <strong>Education</strong>
+                            <span>IT Student – Info Myanmar College</span>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Career Goal</strong>
+                            <span>Software Developer</span>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Location</strong>
+                            <span>Yangon, Myanmar</span>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Interests</strong>
+                            <span>Programming & Technology</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skills">
+                        <h4>Skills & Areas I Am Learning</h4>
+
+                        <div class="skill-tags">
+                            <span>Java</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Database</span>
+                            <span>Microsoft Access</span>
+                            <span>Networking</span>
+                            <span>Problem Solving</span>
+                            <span>Teamwork</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECT SECTION
+    ========================== -->
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>
+                A selection of academic and group projects I have worked on
+                during my IT studies.
+            </p>
+        </div>
+
+
+        <div class="projects">
+
+
+            <!-- PROJECT 1 -->
+            <article class="project-card">
+
+                <div class="project-image">
+                    
+            
+                    <img src="jewelry.jpg" alt="Jewelry Management System">
+                    
+
+                    <div class="project-placeholder">
+                        
+                    
+                    </div>
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Jewelry Management System</h3>
+
+                    <p>
+                        An academic database project designed to organize
+                        jewelry products, customers, sales, and payment
+                        information.
+                    </p>
+
+                    <ul class="project-details">
+                        <li><strong>Role:</strong> Group Member</li>
+                        <li><strong>What I did:</strong> Assisted with database planning, organization, and presentation preparation.</li>
+                        <li><strong>Outcome:</strong> Created a structured database system for managing jewelry store information.</li>
+                    </ul>
+
+                    <span class="project-tag">Microsoft Access • Database</span>
+
+                </div>
+            </article>
+
+
+            <!-- PROJECT 2 -->
+            <article class="project-card">
+
+                <div class="project-image">
+                    
+                    <img src="lamp1.jpg" alt="Smart Automatic Night Lamp System">
+                    
+
+                    <div class="project-placeholder">
+                        
+                    
+                    </div>
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Smart Automatic Night Lamp System</h3>
+
+                    <p>
+                        An IoT-based academic project that uses a light sensor
+                        to automatically control a lamp depending on the
+                        surrounding brightness.
+                    </p>
+
+                    <ul class="project-details">
+                        <li><strong>Role:</strong> Group Member</li>
+                        <li><strong>What I did:</strong> Participated in planning, preparation, teamwork, and presentation.</li>
+                        <li><strong>Outcome:</strong> Designed a concept for automatic lighting that can reduce unnecessary electricity use.</li>
+                    </ul>
+
+                    <span class="project-tag">IoT • Arduino/ESP32 • LDR</span>
+
+                </div>
+            </article>
+
+
+            <!-- PROJECT 3 -->
+            <article class="project-card">
+
+                <div class="project-image">
+                    
+                    <img src="YBS.jpg" alt="YBS Smart Transit Application">
+                    
+
+                    <div class="project-placeholder">
+                        
+                    </div>
+                </div>
+
+                <div class="project-content">
+
+                    <h3>YBS Smart Transit Application</h3>
+
+                    <p>
+                        A group project concept designed to help Yangon
+                        residents find buses, plan routes, and check
+                        bus arrival information.
+                    </p>
+
+                    <ul class="project-details">
+                        <li><strong>Role:</strong> Project Team Member</li>
+                        <li><strong>What I did:</strong> Contributed to project planning, problem solving, discussion, and presentation.</li>
+                        <li><strong>Outcome:</strong> Proposed a practical application concept for making public transportation easier to use.</li>
+                    </ul>
+
+                    <span class="project-tag">Application • UI/UX • Team Project</span>
+
+                </div>
+            </article>
+
+
+            <!-- PROJECT 4 -->
+            <article class="project-card">
+
+                <div class="project-image">
+                    
+                    <img src="main.jpg" alt="University Website">
+                    
+
+                    <div class="project-placeholder">
+                        
+                    </div>
+                </div>
+
+                <div class="project-content">
+
+                    <h3>University Website</h3>
+
+                    <p>
+                        A website project created to provide information about
+                        university programmes, activities, gallery content,
+                        and contact information.
+                    </p>
+
+                    <ul class="project-details">
+                        <li><strong>Role:</strong> Student Developer / Group Member</li>
+                        <li><strong>What I did:</strong> Worked with HTML and CSS to create and style website pages.</li>
+                        <li><strong>Outcome:</strong> Built a multi-page website with navigation, responsive sections, and interactive elements.</li>
+                    </ul>
+
+                    <span class="project-tag">HTML • CSS • Web Design</span>
+
+                </div>
+            </article>
+
+
+            <!--
+            =========================
+            ADD MORE PROJECTS HERE
+            =========================
+
+            Copy one project-card above and change:
+
+            1. Project name
+            2. Project image
+            3. Role
+            4. What you did
+            5. Outcome
+            6. Technologies
+
+            -->
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT ME SECTION
+    ========================== -->
+    <section id="contact">
+
+        <div class="contact-box">
+
+            <div class="contact-text">
+                <h2>Let's Connect</h2>
+
+                <p>
+                    If you would like to contact me about my projects,
+                    studies, or future opportunities, you can reach me
+                    through the contact details below.
+                </p>
+            </div>
+
+
+            <div class="contact-list">
+
+                <!-- CHANGE THESE PLACEHOLDERS -->
+
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:YOUR_EMAIL@example.com">
+                        eipyaephookhin@gmail.com
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    <span>+959427950720</span>
+                </div>
+
+                <div class="contact-item">
+                    <strong>GitHub</strong>
+                    <a href="YOUR_GITHUB_LINK" target="_blank">
+                        eipyae_97                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="YOUR_LINKEDIN_LINK" target="_blank">
+                        Ei Pyae Phoo Khin
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+        <p>© 2026 Ei Pyae Phoo Khin • IT Student Portfolio</p>
+    </footer>
+
+</body>
+</html>
